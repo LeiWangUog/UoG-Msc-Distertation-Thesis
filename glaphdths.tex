@@ -1,0 +1,167 @@
+
+%%%% LOAD DOCUMENT CLASS
+
+\documentclass[12pt,a4paper，crest,nopardent,msfonts,fancychap,hyper,nomencl]{glaphdths}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{tocloft} % 用于自定义目录
+% 设置章节标题左对齐
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter}{1em}{\huge\bfseries\raggedright}
+% 设置页边距
+\geometry{
+    a4paper,
+    left=1.5cm,
+    right=1.5cm,
+    top=1.5cm,
+    bottom=1.5cm,
+}
+% 设置字体为 Times New Roman
+\setmainfont{Times New Roman}
+
+% 设置双倍行距
+\renewcommand{\baselinestretch}{2}
+%%%% SET THE PATH FOR DIAGRAMS.
+% 更改章节编号为罗马数字
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+
+% 添加 Abstract 到目录
+\newcommand{\addabstracttocontents}{
+    \addcontentsline{toc}{chapter}{\protect\numberline{\Roman{chapter}}Abstract}
+}
+
+
+
+
+
+
+\begin{document}
+
+% 封面页不显示页码
+\pagenumbering{gobble}
+
+% Cover page
+
+\begin{titlepage}
+    \raggedright % 使内容靠左对齐
+    \includegraphics[width=0.4\textwidth]{Picture1}\par
+    \vspace{2cm}
+    {\bfseries ECONOMICS DISSERTATION COVER SHEET\par}
+    \vspace{2cm}
+    \textbf{STUDENT ID:}  2849636W \\
+    \textbf{DATE:}  2023-09-30 \\
+    \textbf{NAME OF SUPERVISOR:} Dr.Miguel Colburn Herculano \\
+    \textbf{DISSERTATION TITLE:} Analysts Disagreement and the Cross-Section of Stock Returns \\
+    \textbf{WORD COUNT:}  \\
+    \textbf{PROGRAMME OF STUDY:}  MSc, Investment Banking and Finance  \\
+\end{titlepage}
+
+
+
+
+
+
+
+
+
+%%%% LAY SUMMARY
+% \summary{}
+    \vspace{-20cm}
+\tableofcontents
+
+
+%% List of tables
+ \listoftables
+
+%% List of figure
+ \listoffigures
+ 
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+% 设置摘要页和正文页页码为阿拉伯数字
+
+
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm} % 顶部留出一些空间
+    {\LARGE \textbf{The Epidemiological Behaviour of STIs During the COVID-19:}\\[1em]
+    \LARGE \textbf{Evidence from the Republic of Ireland}}\\[1em]
+    \large \textbf{Student ID: 2529874D}\\[2cm] % 空出两倍行距
+    \vspace{1cm}
+    {\Large \textbf{Abstract}}
+    \addabstracttocontents
+    \vspace{1cm}
+    \begin{quote}
+        \small
+        The recent occurrence of the COVID-19 has raised significant challenges to humankind, including people’s sexual health, which can lead to severe socioeconomic consequences. 
+    \end{quote}
+\end{titlepage}
+
+
+% 设置从第二页开始的页码为阿拉伯数字，并从1开始
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+ 
+
+% FRONT MATTER
+\let\cleardoublepage\clearpage
+
+\include{front/frontmtr}
+\cleardoublepage
+
+
+
+
+
+
+
+%%%% Wordcount -- check on Menu> Wordcount
+
+%%%% START DOCUMENT
+
+\setlength{\parskip}{1.5\baselineskip}
+
+
+
+%%%% FRONT MATTER
+\let\cleardoublepage\clearpage
+
+\include{front/frontmtr}
+
+\cleardoublepage%
+%%%% START MAIN BODY TEXT
+
+%% Call the glaphdths wrapper.
+
+
+\include{chapter1/chapter1}
+\include{chapter2/chapter2}
+\include{chapter3/chapter3}
+\include{chapter4/chapter4}
+\include{chapter5/chapter5}
+\include{appendix/appendix} %merged appendices into one to avoid ToC clashes
+
+\printbibliography
+
+
+\end{document}
